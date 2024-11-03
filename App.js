@@ -1,5 +1,8 @@
 import { StatusBar } from "expo-status-bar";
+
 import { StyleSheet, Button, Text, View, ImageBackground, Image, TextInput, TouchableOpacity } from "react-native";
+
+
 
 export default function App(){
   return(
@@ -43,20 +46,22 @@ export default function App(){
         <Text style={styles.signuptext}>Signup</Text>
         </TouchableOpacity>
 
-{/* Loging With Facebook Button */}
-<TouchableOpacity style={styles.facebook} >
-        <Text style={styles.facetext}>Continue With Facebook</Text>
-        </TouchableOpacity>
+<Text></Text>
 
-{/* Loging With Google Button */}
-<TouchableOpacity style={styles.google} >
-        <Text style={styles.googletext}>Continue With Google</Text>
-        </TouchableOpacity>
+<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <TouchableOpacity onPress={() => navigation.navigate('FacebookScreen')}>
+        <Image source={require('./assets/images/facebook_logo.webp')} style={{ width: 75, height: 75, marginRight: 5 }} />
+      </TouchableOpacity>
 
-{/* Loging With Email Button */}
-<TouchableOpacity style={styles.email} >
-        <Text style={styles.emailtext}>Continue With Email</Text>
-        </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('GoogleScreen')}>
+        <Image source={require('./assets/images/Google_Icons.webp')} style={{ width: 75, height: 75, marginRight: 5 }} />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate('LinkdinScreen')}>
+        <Image source={require('./assets/images/linkedin_logo.webp')} style={{ width: 75, height: 75, marginRight: 5 }} />
+      </TouchableOpacity>
+    </View>
+
 
 {/* finish line -------------------------------------------------------------------------------------- */}
     </View>
@@ -134,5 +139,9 @@ const styles=StyleSheet.create({
     color:"#f8f8ff",
     textAlign:"center",
     fontWeight:"bold"
+  },
+
+  Icons:{
+    borderRadius:50
   }
 })
